@@ -1,3 +1,16 @@
+Deployed, viewable LINK:
+
+https://travel-website-react-lg.herokuapp.com/
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
