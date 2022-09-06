@@ -16,3 +16,11 @@ ALL OF MY COMMITS PRIOR TO SEPTEMBER 3RD 2022 ARE A COPY OF THE VIDEO CODE. EVER
 
 here is a link to the tutorial video in discussion:
 https://www.youtube.com/watch?v=I2UBjN5ER4s
+
+
+
+FEATURES ADDED BY ME:
+
+/services page
+/destinations page
+/destinations/admin page
