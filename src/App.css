@@ -7,7 +7,7 @@
 
 .home,
 .services,
-.products,
+.destinations,
 .sign-up {
   display: flex;
   height: 90vh;
@@ -25,11 +25,7 @@
   font-size: 100px;
 }
 
-.services h1 {
-  padding-bottom: 1000px;
-}
-
-.products {
+.destinations {
   background-image: url('/public/images/img-1.jpg');
   background-position: center;
   background-size: fill;
