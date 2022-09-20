@@ -1,12 +1,20 @@
-.cards {
+.cards-services {
     padding: 4rem;
-    background: #fff;
+    background: white;
+    background: linear-gradient(90deg, rgb(0, 48, 52) 0%, rgb(0, 73, 80) 25%, rgb(0, 70, 77) 75%, rgb(0, 37, 41) 100%);
   }
   
   h1 {
     text-align: center;
+    color: whitesmoke;
   }
   
+  h4 {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 40px;
+  }
+
   .cards__container {
     display: flex;
     flex-flow: column;
@@ -30,6 +38,7 @@
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px;
+    outline: 1px solid black;
   }
   
   .cards__item__link {

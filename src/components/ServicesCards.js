@@ -7,7 +7,7 @@ function ServicesCards() {
 
  
   return (
-    <div className='cards'>
+    <div className='cards-services'>
         <h4> TRVL offers many different services to attend all of your needs! </h4>
         <div className='cards__container'>
             <div className='cards__wrapper'>
@@ -20,7 +20,7 @@ function ServicesCards() {
                     />
                     <CardItem 
                         src='images/Kilimanjaro.webp'
-                        text="We offer trips to the most unique locations in the world"
+                        text="We offer trips to the most unique locations in the world."
                         label="Adventure"
                         path='/sign-up'
                     />
