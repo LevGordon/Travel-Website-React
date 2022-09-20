@@ -7,12 +7,13 @@
     align-items: center;
 }
 
-.footer-subscription {
+.subscribe-wrap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+}
+
+.footer-subscription {
     margin-bottom: 24px;
     padding: 24px;
     color: white;
@@ -46,11 +47,10 @@
     width: 100%;
     max-width: 1200px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-}
-
-.footer-link-wrapper {
-    display: flex;
+    margin-top: 50px;
+    margin-bottom: 15px;
 }
 
 .footer-link-items {
@@ -108,7 +108,7 @@
 .social-media-wrap {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     width: 90%;
     max-width: 1200px;
     margin: 40px auto 0 auto;
@@ -129,12 +129,10 @@
     text-decoration: none;
     font-size: 2rem;
     align-self: center;
-    margin-bottom: 16px;
 }
 
 .website-rights {
     color: #fff;
-    margin-bottom: 16px;
 }
 
 
