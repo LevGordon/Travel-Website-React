@@ -1,140 +1,94 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 
 import '../../App.css'
- 
-const { REACT_APP_API_BASE_URL } = process.env;
 
 function SignUp() {
 
   const navigate = useNavigate()
 
   const initialFormState = {
-    first_name: '',
-    last_name: '',
-    mobile_number: '',
-    email: '',
+    first_name : '',
+    last_name : '',
+    mobile_number : '',
+    email : '',
   }
 
-  const [formData, setFormData] = useState([...initialFormState])
-  const [error, setError] = useState(undefined);
-  const [errorMessage, setErrorMessage] = useState(undefined);
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    setErrorMessage(error);
-    return () => abortController.abort();
-  }, [error]);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formData);
-    const response = await fetch(`${REACT_APP_API_BASE_URL}/reservations`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        data: formData,
-      }),
-    });
-    const resData = await response.json();
-    console.log(resData);
-    if (resData.error) {
-      setError(resData.error);
-    }
-    if (response.status !== 400) {
-      setFormData({ ...initialFormState });
-      // history.goBack();
-      navigate(`/`)
-    }
-  };
-
-  const handleCancel = () => {
-    setFormData({ ...initialFormState });
-    navigate(-1);
-  };
-
-  const handleInputChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    });
-  };
+  const [formData, setFormData] = useState({initialFormState})
 
   const formElement = (
-    <form className="form" onSubmit={handleSubmit}>
-      <label htmlFor="first_name">
+    <form className="form" >
+      <label>
         First name:
         <input
           type="text"
           name="first_name"
           id="first_name"
-          onChange={handleInputChange}
+          onChange={""}
           value={formData.first_name}
           required
         />
       </label>
 
-      <label htmlFor="last_name">
+      <label>
         Last name:
         <input
           type="text"
           name="last_name"
           id="last_name"
-          onChange={handleInputChange}
+          onChange={""}
           value={formData.last_name}
           required
         />
       </label>
 
-      <label htmlFor="mobile_number">
+      <label>
         Mobile number:
         <input
           type="text"
           name="mobile_number"
           id="mobile_number"
           placeholder="xxx-xxx-xxxx"
-          onChange={handleInputChange}
+          onChange={""}
           value={formData.mobile_number}
           required
         />
       </label>
 
-      <label htmlFor="email">
+      <label>
         Email:
         <input
           type="email"
           name="email"
           id="email"
-          onChange={handleInputChange}
+          onChange={""}
           value={formData.email}
           required
         />
       </label>
 
-      <label htmlFor="password">
+      <label>
         Select a password:
         <input
           type="password"
           name="password"
           id="pasword"
-          onChange={handleInputChange}
+          onChange={""}
           required
         />
       </label>
 
-      <label htmlFor="password-repeat">
+      <label>
         Repeat your password:
         <input
           type="password"
           name="password-repeat"
           id="password-repeat"
-          onChange={handleInputChange}
+          onChange={""}
           required
         />
       </label>
-      <button type="button" onClick={handleCancel}>
+      <button type="button" onClick={""}>
         {" "}
         Cancel{" "}
       </button>
