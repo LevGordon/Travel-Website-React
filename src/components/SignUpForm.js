@@ -43,6 +43,7 @@ function SignUpForm() {
           onChange={handleInputChange}
           value={formData.first_name || ""}
           required
+          className="signup-input"
         />
       </div>
       <div className="signup-labelinput-block">
@@ -54,6 +55,7 @@ function SignUpForm() {
           onChange={handleInputChange}
           value={formData.last_name || ""}
           required
+          className="signup-input"
         />
       </div>
       <div className="signup-labelinput-block">
@@ -66,6 +68,7 @@ function SignUpForm() {
           onChange={handleInputChange}
           value={formData.mobile_number || ""}
           required
+          className="signup-input"
         />
       </div>
       <div className="signup-labelinput-block">
@@ -77,6 +80,7 @@ function SignUpForm() {
           onChange={handleInputChange}
           value={formData.email || ""}
           required
+          className="signup-input"
         />
       </div>
       <div className="signup-labelinput-block">
@@ -88,6 +92,7 @@ function SignUpForm() {
           onChange={handleInputChange}
           value={formData.password || ""}
           required
+          className="signup-input"
         />
       </div>
       <div className="signup-labelinput-block">
@@ -99,20 +104,21 @@ function SignUpForm() {
           onChange={handleInputChange}
           value={formData.password_repeat || ""}
           required
+          className="signup-input"
         />
       </div>
       <div className="signup-button-block">
-        <button type="button" onClick={handleCancel}>
+        <button type="button" className="signup-button" onClick={handleCancel}>
           Cancel
         </button>
-        <button type="submit"> Submit </button>
+        <button type="submit" className="signup-button"> Sign Up </button>
       </div>
     </form>
   );
 
   return (
     <div className="SignUpForm">
-      <h3 className="signup-h3-preform">Sign up to TRVL</h3>
+      <h3 className="signup-h3-preform">SIGN UP TO TRVL</h3>
       <div className="signup-form-block">{formElement}</div>
     </div>
   );
