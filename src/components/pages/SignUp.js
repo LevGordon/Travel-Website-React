@@ -1,31 +1,47 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import '../../App.css'
+import "../../App.css";
 
 function SignUp() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const initialFormState = {
-    first_name : '',
-    last_name : '',
-    mobile_number : '',
-    email : '',
+    first_name: "",
+    last_name: "",
+    mobile_number: "",
+    email: "",
+  };
+
+  const [formData, setFormData] = useState({ ...initialFormState });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("formData", formData)
   }
 
-  const [formData, setFormData] = useState({initialFormState})
+  const handleCancel = () => {
+    setFormData({ ...initialFormState });
+    navigate(-1);
+  };
+
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const formElement = (
-    <form className="form" >
+    <form className="form" onSubmit={handleSubmit}>
       <label>
         First name:
         <input
           type="text"
           name="first_name"
           id="first_name"
-          onChange={""}
-          value={formData.first_name}
+          onChange={handleInputChange}
+          value={formData.first_name || ''}
           required
         />
       </label>
@@ -36,8 +52,8 @@ function SignUp() {
           type="text"
           name="last_name"
           id="last_name"
-          onChange={""}
-          value={formData.last_name}
+          onChange={handleInputChange}
+          value={formData.last_name || ''}
           required
         />
       </label>
@@ -49,8 +65,8 @@ function SignUp() {
           name="mobile_number"
           id="mobile_number"
           placeholder="xxx-xxx-xxxx"
-          onChange={""}
-          value={formData.mobile_number}
+          onChange={handleInputChange}
+          value={formData.mobile_number || ''}
           required
         />
       </label>
@@ -61,8 +77,8 @@ function SignUp() {
           type="email"
           name="email"
           id="email"
-          onChange={""}
-          value={formData.email}
+          onChange={handleInputChange}
+          value={formData.email || ''}
           required
         />
       </label>
@@ -73,7 +89,8 @@ function SignUp() {
           type="password"
           name="password"
           id="pasword"
-          onChange={""}
+          onChange={handleInputChange}
+          value={formData.password || ''}
           required
         />
       </label>
@@ -82,22 +99,26 @@ function SignUp() {
         Repeat your password:
         <input
           type="password"
-          name="password-repeat"
-          id="password-repeat"
-          onChange={""}
+          name="password_repeat"
+          id="password_repeat"
+          onChange={handleInputChange}
+          value={formData.password_repeat || ''}
           required
         />
       </label>
-      <button type="button" onClick={""}>
-        {" "}
-        Cancel{" "}
+      <button type="button" onClick={handleCancel}>
+        Cancel
       </button>
       <button type="submit"> Submit </button>
     </form>
   );
 
-
-  return <h1 className='sign-up'>SIGN UP</h1>
+  return (
+    <React.Fragment>
+      <h1 className="sign-up">SIGN UP</h1>
+      <div className="signup-form-block">{formElement}</div>
+    </React.Fragment>
+  );
 }
 
-export default SignUp
+export default SignUp;
