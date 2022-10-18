@@ -14,6 +14,8 @@ function SignUpForm() {
   };
 
   const [formData, setFormData] = useState({ ...initialFormState });
+  const [passwordsMatch, setPasswordsMatch] = useState(true)
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,8 +34,18 @@ function SignUpForm() {
     });
   };
 
+  const passwordMatchValidator = (event) => {
+    event.preventDefault()
+    if(formData.password_repeat === formData.password) {
+        setPasswordsMatch(true)
+        handleSubmit(event)
+    } else {
+        setPasswordsMatch(false)
+    }
+  }
+
   const formElement = (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={passwordMatchValidator}>
       <div className="signup-labelinput-block">
         <label>First name:</label>
         <input
@@ -93,6 +105,8 @@ function SignUpForm() {
           value={formData.password || ""}
           required
           className="signup-input"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must contain at least one number, one uppercase, one lowercase letter and at least 8 characters"
         />
       </div>
       <div className="signup-labelinput-block">
@@ -106,6 +120,9 @@ function SignUpForm() {
           required
           className="signup-input"
         />
+      </div>
+      <div className="signup-password-validation">
+        {passwordsMatch ? <></> : <h4 style={{color: "red", fontSize: "19px"}}>passwords need to match</h4>}
       </div>
       <div className="signup-button-block">
         <button type="button" className="signup-button" onClick={handleCancel}>
