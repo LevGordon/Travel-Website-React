@@ -1,0 +1,33 @@
+
+
+.SignUpForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-h3-preform {
+    font-size: 30px;
+    color: black;
+
+}
+
+.signup-form-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+
+}
+
+.signup-labelinput-block {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.signup-button-block{
+    display: flex;
+    flex-direction: row;
+
+}
