@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSpring, a } from "react-spring";
 
 import "./SignUpForm.css"
 
@@ -17,11 +18,18 @@ function SignUpForm() {
   const [passwordsMatch, setPasswordsMatch] = useState(true)
   const [signupSuccessful, setSignupSuccessful] = useState(false)
 
+  const { transform, opacity } = useSpring({
+    opacity: signupSuccessful ? 1 : 0,
+    transform: `perspective(600px) rotateY(${signupSuccessful ? 180 : 0}deg)`,
+    config: { mass: 5, tension: 500, friction: 80 },
+  })
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("formData", formData);
-    setSignupSuccessful(true)
+    setTimeout(() => setSignupSuccessful(true), 800)
+    
   };
 
   const handleCancel = () => {
@@ -139,11 +147,15 @@ function SignUpForm() {
     <div className="SignUpForm">
       <h3 className="signup-h3-preform">SIGN UP TO TRVL</h3>
       {signupSuccessful ? 
-      <div className="signup-form-block-success">
+      <a.div style={{ opacity: 1, transform }} className="signup-form-block-success">
       <h5 className="signup-success-h5">Sign-up was successful</h5>
-      <h5 className="signup-success-h5">Email confirmation sent to {formData.email}</h5>
-      </div>
-       : <div className="signup-form-block">
+      <h5 className="signup-success-h5">Email confirmation {'(NOT) '}sent to {formData.email}</h5>
+      </a.div>
+       : <div style={{
+        opacity,
+        transform,
+        rotateX: '180deg',
+      }} className="signup-form-block">
        <div className="signup-password-requirements">
        <h5 className="signup-password-requirements-h5">Password requirements:</h5>
        <ul className="signup-ulist">

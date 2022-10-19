@@ -125,5 +125,6 @@
 .signup-success-h5 {
     color: rgb(0, 202, 0);
     font-size: 18px;
+    transform: scaleX(-1);
 }
 
