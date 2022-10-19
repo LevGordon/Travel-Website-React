@@ -43,6 +43,22 @@
 
 }
 
+/* STYLE INDIVIDUAL LI UL MARGIN LEFT */
+
+.signup-password-requirements {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+    margin-right: auto;
+}
+
+.signup-password-requirements-h5 {
+    font-size: 18px;
+    color: black;
+    margin-left: 0;
+
+}
+
 .signup-labelinput-block {
     display: flex;
     flex-direction: column;
@@ -89,3 +105,4 @@
 .signup-button:active {
     background-color: wheat;
 }
+
