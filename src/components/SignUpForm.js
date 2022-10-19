@@ -15,11 +15,13 @@ function SignUpForm() {
 
   const [formData, setFormData] = useState({ ...initialFormState });
   const [passwordsMatch, setPasswordsMatch] = useState(true)
+  const [signupSuccessful, setSignupSuccessful] = useState(false)
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("formData", formData);
+    setSignupSuccessful(true)
   };
 
   const handleCancel = () => {
@@ -136,18 +138,23 @@ function SignUpForm() {
   return (
     <div className="SignUpForm">
       <h3 className="signup-h3-preform">SIGN UP TO TRVL</h3>
-      <div className="signup-form-block">
-        <div className="signup-password-requirements">
-        <h5 className="signup-password-requirements-h5">Password requirements:</h5>
-        <ul>
-          <li>Longer than 8 characters</li>
-          <li>Must contain at least 1 uppercase and 1 lowercase character</li>
-          <li>Must contain at least 1 number</li>
-          <li>Must contain at least 1 special character (""$#/\:;) </li>
-        </ul>
-        </div>
-        {formElement}
-        </div>
+      {signupSuccessful ? 
+      <div className="signup-form-block-success">
+      <h5 className="signup-success-h5">Sign-up was successful</h5>
+      <h5 className="signup-success-h5">Email confirmation sent to {formData.email}</h5>
+      </div>
+       : <div className="signup-form-block">
+       <div className="signup-password-requirements">
+       <h5 className="signup-password-requirements-h5">Password requirements:</h5>
+       <ul className="signup-ulist">
+         <li>Longer than 8 characters</li>
+         <li>Must contain at least 1 uppercase and 1 lowercase character</li>
+         <li>Must contain at least 1 number</li>
+         <li>Must contain at least 1 special character (""$#/\:;) </li>
+       </ul>
+       </div>
+       {formElement}
+     </div>}
     </div>
   );
 }
