@@ -1,6 +1,6 @@
 Deployed, viewable LINK:
 
-https://travel-website-react-lg.herokuapp.com/
+https://travel-website-react.vercel.app/
 
 
 
@@ -22,5 +22,5 @@ https://www.youtube.com/watch?v=I2UBjN5ER4s
 FEATURES ADDED BY ME:
 
 /services page
+/Sign Up page
 /destinations page
-/destinations/admin page
